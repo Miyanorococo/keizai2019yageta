@@ -1,0 +1,64 @@
+{% load otree %}
+
+<head>
+    <style type="text/css">
+        #player {
+            width: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .My {
+            float: left;
+            width: 50%;
+            padding-top: 30px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+
+        }
+
+        .You {
+            float: right;
+            width: 50%;
+            padding-top: 28px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        現在の獲得ポイント
+    </h3>
+    <!-- For SendMachine page -->
+    {% if player.role == 'A' and player.PageSetNum == 0 %}
+        <div id="player">
+        <dl class="My">
+		    <p>あなた</p>
+            <dd>{{ Constants.endowment }}</dd>
+        </dl>
+        <dl class="You">
+		    <p>機械</p>
+		    <dd>0ポイント</dd>
+	    </dl>
+        </div>
+    <!-- For Send page -->
+    {% elif player.role == 'A' and group.player_select1 != 2 or group.player_select2 != 2 %}
+        <div id="player">
+        <dl class="My">
+		    <p>あなた</p>
+            <dd>{{ Constants.endowment }}</dd>
+        </dl>
+        <dl class="You">
+		    <p>ペア</p>
+		    <dd>0ポイント</dd>
+	    </dl>
+        </div>
+    {% endif %}
+    </div>
+</div>

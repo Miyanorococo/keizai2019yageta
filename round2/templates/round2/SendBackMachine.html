@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    あなたのターンです
+{% endblock %}
+
+{% block content %}
+
+  {% include Constants.pointback_template %}
+
+<p>
+    機械はあなたに{{group.Smb}}送ってきたので、あなたは３倍の{{tripled_amount}}を獲得しました。
+    機械に何ポイント返しますか。
+</p>
+
+    {% formfield group.Rbm label=prompt %}
+    <p>{% next_button %}</p>
+
+{% endblock %}

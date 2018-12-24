@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    “人間”と“機械”、どちらかを選んでください
+{% endblock %}
+
+{% block content %}
+
+    {% formfield group.player_select2 label="“人間”とプレイしたい場合は1を、“機械と”プレイしたい場合は2を選んでください" %}
+
+
+    {% next_button %}
+
+{% endblock %}

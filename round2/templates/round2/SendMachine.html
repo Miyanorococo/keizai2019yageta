@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    あなたのターンです
+{% endblock %}
+
+{% block content %}
+
+    {% include Constants.pointsend_template %}
+
+   <p>
+        あなたは現在{{Constants.endowment}}持っています。機械に何ポイント送りますか。
+    </p>
+
+    {% formfield group.Sam label="0ポイントから1000ポイントの間で渡すポイントを打ち込んでください" %}
+    <p>
+    {% next_button %}
+    </p>
+
+{% endblock %}

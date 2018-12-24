@@ -1,0 +1,66 @@
+{% load otree %}
+
+<head>
+    <style type="text/css">
+        #player {
+            width: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .My {
+            float: left;
+            width: 50%;
+            padding-top: 30px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+
+        }
+
+        .You {
+            float: right;
+            width: 50%;
+            padding-top: 28px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        Points
+    </h3>
+    {% if player.role == 'A' %}
+        <div id="player">
+        <dl class="My">
+		    <p>あなた</p>
+            <dd>機械から：{{ group.Ya }}</dd>
+            <dd>相手から：{{ group.Yb }}</dd>
+        </dl>
+        <dl class="You">
+		    <p>相手</p>
+		    <dd>機械から：{{ group.Xb }}</dd>
+            <dd>自分から：{{ group.Xa }}</dd>
+	    </dl>
+        </div>
+    {% else %}
+        <div id="player">
+        <dl class="My">
+		    <p>あなた</p>
+            <dd>機械から：{{ group.Xb }}</dd>
+            <dd>相手から：{{ group.Xa }}</dd>
+        </dl>
+        <dl class="You">
+		    <p>相手</p>
+		    <dd>機械から：{{ group.Ya }}</dd>
+            <dd>自分から：{{ group.Yb }}</dd>
+	    </dl>
+        </div>
+    {% endif %}
+    </div>
+</div>

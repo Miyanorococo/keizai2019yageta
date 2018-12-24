@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Results2
+{% endblock %}
+
+{% block content %}
+
+    {% if player.role == 'A' %}
+        <p>
+            {{ player.ResultNum }}.
+            You chose to send participant B {{ group.Sab }}.
+            Participant B returned {{ group.Rba }}.
+        </p>
+        <p>
+            You were initially endowed with {{ Constants.endowment }},
+            chose to send {{ group.Sab }},
+            received {{ group.Rba }}
+            thus you now have:
+            {{ Constants.endowment }}-{{ group.Sab }}+{{ group.Rba }}=<strong>{{ player.payoff }}</strong>
+            & <strong>{{ group.Ga3}}</strong>
+        </p>
+    {% else %}
+        <p>
+            {{ player.ResultNum }}.
+            Participant A sent you {{ group.Sab }}.
+            They were tripled so you received {{ tripled_amount }}.
+            You chose to return {{ group.Rba }}.
+        </p>
+        <p>
+            You received {{ tripled_amount }},
+            chose to return {{ group.Rba}}
+            thus you now have:
+            ({{ tripled_amount }})-({{ group.Rba }})=<strong>{{ player.payoff }}</strong>
+            & <strong>{{ group.Gb3 }}</strong>
+        </p>
+        .
+    {% endif %}
+
+    <p>{% next_button %}</p>
+
+    {% include Constants.result_template %}
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

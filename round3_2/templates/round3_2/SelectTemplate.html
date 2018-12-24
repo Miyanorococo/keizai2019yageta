@@ -1,0 +1,36 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        SelectRole
+    </h3>
+    {% if player.role == 'A' %}
+        {% if group.player_select1 == 1 %}
+            <p>あなたは人間と対戦することを選んでいます。</p>
+        {% else %}
+            <p>あなたは機械と対戦することを選んでいます。</p>
+        {% endif %}
+        {% if group.player_select2 == 1 %}
+            <p>相手プレイヤーは人間と対戦することを選んでいます。</p>
+        {% else %}
+            <p>相手プレイヤーは機械と対戦することを選んでいます。</p>
+        {% endif %}
+    {% else %}
+        {% if group.player_select2 == 1 %}
+            <p>あなたは人間と対戦することを選んでいます。</p>
+        {% else %}
+            <p>あなたは機械と対戦することを選んでいます。</p>
+        {% endif %}
+        {% if group.player_select1 == 1 %}
+            <p>相手プレイヤーは人間と対戦することを選んでいます。</p>
+        {% else %}
+            <p>相手プレイヤーは機械と対戦することを選んでいます。</p>
+        {% endif %}
+    {% endif %}
+    <p>
+        なんかテキスト入れたかったら.
+    </p>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    結果２
+{% endblock %}
+
+{% block content %}
+
+    {% include Constants.result_template %}
+
+   {% if player.role == 'A' %}
+        {% if group.player_select2 == 1 %}
+            <p>
+                ペアは“人間”を選択しました。
+                あなたはペアに{{ group.Sab }}を渡し、
+                ペアはあなたに{{ group.Rba }}渡しました。
+            </p>
+            <p>
+                あなたの獲得金額は、初期所持の{{ Constants.endowment }}から
+                ペアに渡した{{ group.Sab }}を引き、
+                ペアから返ってきた{{ group.Rba }}を足したものなので、
+                ({{ Constants.endowment }})-({{ group.Sab }})+({{ group.Rba }})=<strong>{{ group.Ga1}}</strong>
+                です。
+            </p>
+        {% else %}
+            <p>
+                ペアは“機械”を選択しました。
+                機械はペアに{{ group.Smb }}を送り、
+                そのポイントは３倍の{{ tripled_amount2 }}となってペアに渡されました。
+                ペアは{{ group.Rbm }}を機械に返しました。
+            </p>
+            <p>
+                あなたの獲得ポイントは、ペアとゲームをプレイした機械の獲得したポイントなので、
+                初期所持の{{ Constants.endowment }}から
+                ペアに渡した{{ group.Smb }}を引き、
+                ペアから返ってきた{{ group.Rbm }}を足したものなので、
+                ({{ Constants.endowment }})-({{ group.Smb }})+({{ group.Rbm }})= <strong>{{ group.Ga3}}</strong>
+                です。
+        {% endif %}
+    {% else %}
+        {% if group.player_select1 == 1 %}
+            <p>
+                ペアは“人間”を選択しました。
+                ペアはあなたに{{ group.Sab }}を送り、
+                その額は{{ tripled_amount }}となってあなたに渡されました。
+                あなたは{{ group.Rba }}をペアに渡しました。
+            </p>
+            <p>
+                あなたの獲得ポイントは、初期所持の0ポイントから
+                ペアが送ったポイントの３倍の{{ tripled_amount }}を足し、
+                ペアに渡した{{ group.Rba}}を引いたものなので、
+                ({{ tripled_amount}})-({{ group.Rba }})=<strong>{{ group.Gb1 }}</strong>
+                です。
+            </p>
+        {% else %}
+            <p>
+                ペアは“機械”を選択しました。
+                ペアは機械に{{ group.Sam }}を送り、
+                そのポイントは３倍の{{ tripled_amount3 }}となって機械に渡されました。
+                機械は{{ group.Rma }}をペアに返しました。
+            </p>
+            <p>
+                あなたの獲得ポイントは、ペアとゲームをプレイした機械の獲得したポイントなので、
+                初期所持の0ポイントから
+                ペアが送ったポイントの３倍の{{ tripled_amount3 }}を足し、
+                ペアに渡した{{ group.Rma}}を引いたものなので、
+                ({{ tripled_amount3 }})-({{ group.Rma }})=<strong>{{ group.Gb3 }}</strong>
+                です。
+        {% endif %}
+    {% endif %}
+
+    <p>{% next_button %}</p>
+
+
+{% endblock %}

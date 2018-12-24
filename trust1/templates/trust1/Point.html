@@ -1,0 +1,17 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        Points
+    </h3>
+    {% if player.role == 'A' %}
+        <p>あなた：{{ Constants.endowment }} </p>
+        <p>相手：0</p>
+    {% else %}
+        <p>あなた：{{ player.payoff }} </p>
+        <p>相手： {{ group.count1 }}</p>
+    {% endif %}
+    </div>
+</div>

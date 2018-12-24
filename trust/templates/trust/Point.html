@@ -1,0 +1,62 @@
+{% load otree %}
+
+<head>
+    <style type="text/css">
+        #player {
+            width: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .My {
+            float: left;
+            width: 50%;
+            padding-top: 30px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+
+        }
+
+        .You {
+            float: right;
+            width: 50%;
+            padding-top: 28px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        Points
+    </h3>
+    {% if player.role == 'A' %}
+        <div id="player">
+        <dl class="My">
+		    <p>あなた</p>
+            <dd>{{ Constants.endowment }}</dd>
+        </dl>
+        <dl class="You">
+		    <p>相手</p>
+		    <dd>¥0</dd>
+	    </dl>
+        </div>
+    {% else %}
+        <div id="player">
+        <dl class="My">
+		    <p>あなた</p>
+            <dd>{{ tripled_amount }}</dd>
+        </dl>
+        <dl class="You">
+		    <p>相手</p>
+		    <dd>{{ cpu_count }}</dd>
+	    </dl>
+        </div>
+    {% endif %}
+    </div>
+</div>

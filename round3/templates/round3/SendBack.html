@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    あなたのターンです
+{% endblock %}
+
+{% block content %}
+
+    {% include Constants.pointback_template %}
+
+   {% if group.player_select2 == 1 %}
+        <p>
+        あなたは“人間”を選択しました。
+            <br>   ペアはあなたに{{group.Sab}}送ってきたので、あなたは３倍の{{tripled_amount}}を獲得しました。
+    ペアに何ポイント返しますか。
+            </br>
+        </p>
+    {% else %}
+        <p>
+                ペアは“人間”を選択したので、ペアとのゲームもプレイしてもらいます。
+            <br>   ペアはあなたに{{group.Sab}}送ってきたので、あなたは３倍の{{tripled_amount}}を獲得しました。
+    ペアに何ポイント返しますか。
+            </br>
+        </p>
+    {% endif %}
+
+    {% formfield group.Rba label=prompt %}
+    <p>{% next_button %}</p>
+
+
+{% endblock %}
