@@ -54,6 +54,12 @@ SESSION_CONFIGS = [
      'num_demo_participants': 2,
      'app_sequence': ['round1','round1_2','round2','round2_2','round3','round3_2'],
     },
+    {
+     'name': 'sequence2',
+     'display_name': "sequence",
+     'num_demo_participants': 2,
+     'app_sequence': ['round2','round2_2','round1','round1_2','round3','round3_2'],
+    },
 ]
 # see the end of this file for the inactive session configs
 
