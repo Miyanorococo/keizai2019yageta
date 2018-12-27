@@ -56,7 +56,7 @@ SESSION_CONFIGS = [
     },
     {
      'name': 'sequence2',
-     'display_name': "sequence",
+     'display_name': "sequence2",
      'num_demo_participants': 2,
      'app_sequence': ['round2','round2_2','round1','round1_2','round3','round3_2'],
     },
