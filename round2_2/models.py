@@ -4,6 +4,7 @@ from otree.api import (
 )
 import random
 from random import randint
+from numpy.random import *
 
 
 doc = """
@@ -79,11 +80,22 @@ class Group(BaseGroup):
     Smb = models.CurrencyField()
 
     def set_smb(self):
-        self.Smb = c(randint(0, Constants.endowment))
+        self.Smb = c(Constants.endowment * normal(0.502, 0.124))
+        if self.Smb > 1000:
+            self.Smb = c(1000)
+        if self.Smb < 0:
+            self.Smb = c(0)
 
     # CPUが送り返す
+    rrand = models.CurrencyField()
+
     def b(self):
-        return randint(0, self.Sam * Constants.multiplier)
+        self.rrand = normal(0.372, 0.114)
+        if self.rrand > 1:
+            self.rrand = 1
+        if self.rrand < 0:
+            self.rrand = 0
+        return self.rrand
 
     Rma = models.CurrencyField()
 
@@ -106,7 +118,7 @@ class Group(BaseGroup):
             self.Rba = c(0)
         if self.Rbm is None:
             self.Rbm = c(0)
-        self.Rma = c(self.b())
+        self.Rma = self.b() * self.Sam
         # Y(a)
         p1.payoff = Constants.endowment - self.Sab + self.Rma
         # X(a)

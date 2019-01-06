@@ -73,7 +73,7 @@ class Send(Page):
 
 class MyWaitPage(WaitPage):
     template_name = 'round1/MyWaitPage.html'
-    title_text = "ペアが選択中です"
+    title_text = "ペアのターンです"
     body_text = "ペアの選択を待っています"
 
     def after_all_players_arrive(self):

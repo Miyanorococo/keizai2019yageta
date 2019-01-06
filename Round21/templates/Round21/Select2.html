@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Select Player
+{% endblock %}
+
+{% block content %}
+
+    {% formfield group.player_select2 label="Please select your player 1.human 2.machine" %}
+
+
+    {% next_button %}
+
+{% endblock %}

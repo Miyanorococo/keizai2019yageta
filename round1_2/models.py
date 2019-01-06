@@ -40,7 +40,6 @@ class Subsession(BaseSubsession):
         new_structure = [[14, 11], [20, 13], [24, 9], [22, 10], [8, 17], [27, 26], [28, 23], [1, 3], [15, 2], [19, 12], [5, 4], [16, 21], [7, 18], [25, 6]]
         self.set_group_matrix(new_structure)
 
-
 class Group(BaseGroup):
 
     # 人か機械の選択 1.人 2.機械

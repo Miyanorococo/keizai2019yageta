@@ -1,0 +1,14 @@
+{% extends 'otree/WaitPage.html' %}
+{% load otree %}
+{% block title %}{{ title_text }}{% endblock %}
+{% block content %}
+    {{ body_text }}
+    <p>少々お待ちください。</p>
+
+    {% if player.role == 'A' %}
+    {% include Constants.wait_template %}
+    {% endif %}
+
+
+{% endblock %}
+

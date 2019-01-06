@@ -1,0 +1,140 @@
+{% load otree %}
+
+<head>
+    <style type="text/css">
+        #player {
+            width: auto;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .My {
+            float: left;
+            width: 50%;
+            padding-top: 30px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+
+        }
+
+        .You {
+            float: right;
+            width: 50%;
+            padding-top: 28px;
+            /*padding-bottom: 30px;*/
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        最終結果
+    </h3>
+    {% if player.ResultNum == 1 %}
+        {% if player.role == 'A' %}
+            {% if group.player_select1 == 1 %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Ga1 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>ペア</p>
+                    <dd>{{ group.Gb1 }}</dd>
+                </dl>
+                </div>
+            {% else %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Ga2 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>機械</p>
+                    <dd>{{ group.Gb3 }}</dd>
+                </dl>
+                </div>
+            {% endif %}
+        {% else %}
+            {% if group.player_select2 == 1 %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Gb1 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>ペア</p>
+                    <dd>{{ group.Ga1 }}</dd>
+                </dl>
+                </div>
+            {% else %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Gb2 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>機械</p>
+                    <dd>{{ group.Ga3 }}</dd>
+                </dl>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% else %}
+         {% if player.role == 'A' %}
+            {% if group.player_select2 == 1 %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Ga1 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>ペア</p>
+                    <dd>{{ group.Gb1 }}</dd>
+                </dl>
+                </div>
+            {% else %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Ga3 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>機械</p>
+                    <dd>{{ group.Gb2 }}</dd>
+                </dl>
+                </div>
+            {% endif %}
+        {% else %}
+            {% if group.player_select1 == 1 %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Gb1 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>ペア</p>
+                    <dd>{{ group.Ga1 }}</dd>
+                </dl>
+                </div>
+            {% else %}
+                <div id="player">
+                <dl class="My">
+                    <p>あなた</p>
+                    <dd>{{ group.Gb3 }}</dd>
+                </dl>
+                <dl class="You">
+                    <p>機械</p>
+                    <dd>{{ group.Ga2 }}</dd>
+                </dl>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+
+    <h3>
+        先手か後手か
+    </h3>
+    {% if player.role == 'A' %}
+        <p>あなたは“先手”です。</p>
+    {% else %}
+        <p>あなたは“後手”です。</p>
+    {% endif %}
+
+    </div>
+</div>

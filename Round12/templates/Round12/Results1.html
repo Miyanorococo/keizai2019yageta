@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    結果
+{% endblock %}
+
+{% block content %}
+
+    {% include Constants.result_template %}
+
+   {% if player.role == 'A' %}
+        <p>
+            あなたはペアに{{ group.Sab }}を渡し、
+            ペアはあなたに{{ group.Rba }}渡しました。
+        </p>
+        <p>
+            あなたの獲得ポイントは、初期所持の{{ Constants.endowment }}から
+            ペアに渡した{{ group.Sab }}を引き、
+            ペアから返ってきた{{ group.Rba }}を足したものなので、
+            ({{ Constants.endowment }})-({{ group.Sab }})+({{ group.Rba }})=<strong>{{ group.Ga1}}</strong>
+            です。
+        </p>
+    {% else %}
+        <p>
+            ペアはあなたに{{ group.Sab }}を送り、
+            そのポイントは{{ tripled_amount }}となってあなたに渡されました。
+            あなたは{{ group.Rba }}をペアに渡しました。
+        </p>
+        <p>
+            あなたの獲得ポイントは、初期所持の0ポイントから
+            ペアが送ったポイントの３倍の{{ tripled_amount }}を足し、
+            ペアに渡した{{ group.Rba}}を引いたものなので、
+            ({{ tripled_amount }})-({{ group.Rba }})=<strong>{{ group.Gb1 }}</strong>
+            です。
+        </p>
+    {% endif %}
+
+    <p>{% next_button %}</p>
+
+{% endblock %}

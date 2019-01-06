@@ -1,0 +1,11 @@
+{% extends 'otree/WaitPage.html' %}
+{% load otree %}
+{% block title %}{{ title_text }}{% endblock %}
+{% block content %}
+    {{ body_text }}
+    <p>ここがお前の死に場所だぁ！</p>
+
+    {% include Constants.pointback_template %}
+
+    {% include Constants.instructions_template %}
+{% endblock %}

@@ -49,16 +49,40 @@ SESSION_CONFIGS = [
      'app_sequence': ['round3_2'],
     },
     {
-     'name': 'sequence',
-     'display_name': "sequence",
+     'name': 'sequence1',
+     'display_name': "sequence1",
      'num_demo_participants': 2,
      'app_sequence': ['round1','round1_2','round2','round2_2','round3','round3_2'],
     },
     {
-     'name': 'sequence2',
-     'display_name': "sequence2",
-     'num_demo_participants': 2,
-     'app_sequence': ['round2','round2_2','round1','round1_2','round3','round3_2'],
+        'name': 'Round21',
+        'display_name': "Round21",
+        'num_demo_participants': 2,
+        'app_sequence': ['Round21'],
+    },
+    {
+        'name': 'Round21_2',
+        'display_name': "Round21_2",
+        'num_demo_participants': 2,
+        'app_sequence': ['Round21_2'],
+    },
+    {
+        'name': 'Round12',
+        'display_name': "Round12",
+        'num_demo_participants': 2,
+        'app_sequence': ['Round12'],
+    },
+    {
+        'name': 'Round12_2',
+        'display_name': "Round12_2",
+        'num_demo_participants': 2,
+        'app_sequence': ['Round12_2', ],
+    },
+    {
+        'name': 'sequence2',
+        'display_name': "sequence2",
+        'num_demo_participants': 2,
+        'app_sequence': ['Round21', 'Round21_2', 'Round12', 'Round12_2', 'round3', 'round3_2'],
     },
 ]
 # see the end of this file for the inactive session configs

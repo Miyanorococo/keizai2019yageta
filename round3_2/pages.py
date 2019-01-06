@@ -71,7 +71,7 @@ class Send(Page):
 
 class MyWaitPage(WaitPage):
     template_name = 'round3_2/MyWaitPage.html'
-    title_text = "相手が選択中です"
+    title_text = "相手のターンです"
     body_text = "相手の選択を待っています"
 
 
@@ -130,7 +130,7 @@ class SendBack(Page):
 
 class ResultsWaitPage(WaitPage):
     template_name = 'round3_2/MyWaitPage.html'
-    title_text = "相手が選択中です"
+    title_text = "相手のターンです"
     body_text = "相手の選択を待っています"
 
     def vars_for_template(self):
