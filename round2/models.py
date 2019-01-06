@@ -118,7 +118,7 @@ class Group(BaseGroup):
             self.Rba = c(0)
         if self.Rbm is None:
             self.Rbm = c(0)
-        self.Rma = self.b() * self.Sam
+        self.Rma = self.b() * self.Sam * Constants.multiplier
         # Y(a)
         p1.payoff = Constants.endowment - self.Sab + self.Rma
         # X(a)
